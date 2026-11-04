@@ -1,0 +1,19 @@
+{
+  "name": "devspace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DevSpace — Personal 3D Knowledge Workspace monorepo",
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"api,web\" -c \"cyan,magenta\" \"pnpm --filter @devspace/api dev\" \"pnpm --filter @devspace/web dev\"",
+    "dev:web": "pnpm --filter @devspace/web dev",
+    "dev:api": "pnpm --filter @devspace/api dev",
+    "build": "pnpm --filter @devspace/contracts build && pnpm --filter @devspace/api build && pnpm --filter @devspace/web build",
+    "lint": "pnpm -r --parallel run lint",
+    "typecheck": "pnpm -r --parallel run typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.2"
+  },
+  "packageManager": "pnpm@10.15.1"
+}
