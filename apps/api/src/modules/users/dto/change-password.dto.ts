@@ -1,0 +1,12 @@
+import { IsNotEmpty, IsString, MinLength } from 'class-validator';
+import type { ChangePasswordRequest } from '@devspace/contracts';
+
+export class ChangePasswordDto implements ChangePasswordRequest {
+  @IsString()
+  @IsNotEmpty({ message: 'Current password is required' })
+  currentPassword!: string;
+
+  @IsString()
+  @MinLength(8, { message: 'New password must be at least 8 characters long' })
+  newPassword!: string;
+}

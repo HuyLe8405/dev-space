@@ -1,0 +1,67 @@
+name: CI Quality Gate
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, Lint, Test & Build
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: "postgresql://dummy:dummy@localhost:5432/dummy?schema=public"
+      JWT_ACCESS_SECRET: "ci-dummy-jwt-access-secret-minimum-32-chars"
+      JWT_REFRESH_SECRET: "ci-dummy-jwt-refresh-secret-minimum-32-chars"
+      PORT: 4000
+      NEXT_PUBLIC_API_URL: "http://localhost:4000"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build shared contracts
+        run: pnpm --filter @devspace/contracts build
+
+      - name: Generate Prisma Client
+        run: pnpm --filter @devspace/api exec prisma generate
+
+      - name: Run Typecheck
+        run: pnpm typecheck
+
+      - name: Run Linter
+        run: pnpm lint
+
+      - name: Run Unit Tests
+        run: pnpm test
+
+      - name: Run E2E Tests
+        run: pnpm test:e2e
+
+      - name: Production Build
+        run: pnpm build
