@@ -43,3 +43,6 @@ coverage/
 
 # Turbo / Cache
 .turbo/
+
+# agent
+.agents/
