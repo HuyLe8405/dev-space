@@ -9,7 +9,7 @@
     "dev:api": "pnpm --filter @devspace/api dev",
     "build": "pnpm --filter @devspace/contracts build && pnpm --filter @devspace/api build && pnpm --filter @devspace/web build",
     "lint": "pnpm -r --parallel run lint",
-    "typecheck": "pnpm -r --parallel run typecheck",
+    "typecheck": "pnpm --filter @devspace/contracts build && pnpm -r --parallel run typecheck",
     "test": "pnpm --filter @devspace/api test",
     "test:e2e": "pnpm --filter @devspace/api run test:e2e"
   },
