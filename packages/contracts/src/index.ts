@@ -15,3 +15,6 @@ export interface WorkspaceSummary {
   createdAt: string;
   updatedAt: string;
 }
+
+export * from './auth/auth.dto';
+export * from './auth/user.dto';

@@ -51,13 +51,13 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Independent Test**: Register at `/register` with valid credentials, verify account and profile are created in database, confirm `access_token` and `refresh_token` cookies are set, and confirm browser transitions to workspace.
 
-- [ ] T014 [P] [US1] Unit tests for `UsersService.createUser` and `AuthService.register` in `apps/api/test/unit/register.spec.ts`
-- [ ] T015 [US1] Implement `UsersService.createUser` in `apps/api/src/modules/users/users.service.ts` using Prisma transaction to create `User` (email normalized lowercase) and `Profile` (display name defaulting to email prefix if omitted verbatim per FR-001)
-- [ ] T016 [US1] Implement `AuthService.register` in `apps/api/src/modules/auth/auth.service.ts` validating email uniqueness, hashing password, creating `Session` record, and generating access and refresh tokens
-- [ ] T017 [US1] Implement `POST /api/auth/register` endpoint in `apps/api/src/modules/auth/auth.controller.ts` returning generic 400 error on duplicate email (FR-005) and setting httpOnly session cookies
-- [ ] T018 [P] [US1] Implement `RegisterForm` component in `apps/web/src/features/auth/components/register-form.tsx` with email, optional display name (placeholder hint), password, confirmation, and real-time FR-003 checklist (8+ chars, upper, lower, number)
-- [ ] T019 [US1] Implement registration page in `apps/web/src/app/(auth)/register/page.tsx` using centered 380px layout adhering to `ux-design.md`, wiring submit to `register` action and redirecting to `/workspaces`
-- [ ] T020 [US1] E2E integration test for registration flow and duplicate email enumeration protection in `apps/api/test/e2e/register.e2e-spec.ts`
+- [x] T014 [P] [US1] Unit tests for `UsersService.createUser` and `AuthService.register` in `apps/api/test/unit/register.spec.ts`
+- [x] T015 [US1] Implement `UsersService.createUser` in `apps/api/src/modules/users/users.service.ts` using Prisma transaction to create `User` (email normalized lowercase) and `Profile` (display name defaulting to email prefix if omitted verbatim per FR-001)
+- [x] T016 [US1] Implement `AuthService.register` in `apps/api/src/modules/auth/auth.service.ts` validating email uniqueness, hashing password, creating `Session` record, and generating access and refresh tokens
+- [x] T017 [US1] Implement `POST /api/auth/register` endpoint in `apps/api/src/modules/auth/auth.controller.ts` returning generic 400 error on duplicate email (FR-005) and setting httpOnly session cookies
+- [x] T018 [P] [US1] Implement `RegisterForm` component in `apps/web/src/features/auth/components/register-form.tsx` with email, optional display name (placeholder hint), password, confirmation, and real-time FR-003 checklist (8+ chars, upper, lower, number)
+- [x] T019 [US1] Implement registration page in `apps/web/src/app/(auth)/register/page.tsx` using centered 380px layout adhering to `ux-design.md`, wiring submit to `register` action and redirecting to `/workspaces`
+- [x] T020 [US1] E2E integration test for registration flow and duplicate email enumeration protection in `apps/api/test/e2e/register.e2e-spec.ts`
 
 **Checkpoint**: User Story 1 is functional and verifiable as a standalone MVP increment.
 
@@ -69,14 +69,14 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Independent Test**: Sign in with valid credentials, verify redirect to workspace, perform hard page refresh to confirm persistent auth state, and verify token rotation on `/api/auth/refresh`.
 
-- [ ] T021 [P] [US2] Unit tests for `AuthService.login` and `AuthService.refreshSession` in `apps/api/test/unit/login-refresh.spec.ts`
-- [ ] T022 [US2] Implement `AuthService.login` in `apps/api/src/modules/auth/auth.service.ts` verifying credentials with constant-time check, creating `Session` record, and generating JWT and refresh cookies
-- [ ] T023 [US2] Implement `AuthService.refreshSession` in `apps/api/src/modules/auth/auth.service.ts` validating unrevoked session hash, rotating refresh token, and issuing fresh access token
-- [ ] T024 [US2] Implement `POST /api/auth/login`, `POST /api/auth/refresh`, and `GET /api/auth/me` endpoints in `apps/api/src/modules/auth/auth.controller.ts`
-- [ ] T025 [P] [US2] Implement `LoginForm` component in `apps/web/src/features/auth/components/login-form.tsx` with email, password, reveal toggle, keyboard submit (`↵`), and generic error alert
-- [ ] T026 [US2] Implement login page in `apps/web/src/app/(auth)/login/page.tsx` adhering to centered 380px layout in `ux-design.md`, reading `redirect` query parameter for post-login destination
-- [ ] T027 [US2] Wire `AuthContext` to query `GET /api/auth/me` on mount in `apps/web/src/features/auth/context/auth-context.tsx` to restore session state without layout flicker
-- [ ] T028 [US2] E2E integration test for sign-in, token refresh rotation, and reload persistence in `apps/api/test/e2e/login-refresh.e2e-spec.ts`
+- [x] T021 [P] [US2] Unit tests for `AuthService.login` and `AuthService.refreshSession` in `apps/api/test/unit/login-refresh.spec.ts`
+- [x] T022 [US2] Implement `AuthService.login` in `apps/api/src/modules/auth/auth.service.ts` verifying credentials with constant-time check, creating `Session` record, and generating JWT and refresh cookies
+- [x] T023 [US2] Implement `AuthService.refreshSession` in `apps/api/src/modules/auth/auth.service.ts` validating unrevoked session hash, rotating refresh token, and issuing fresh access token
+- [x] T024 [US2] Implement `POST /api/auth/login`, `POST /api/auth/refresh`, and `GET /api/auth/me` endpoints in `apps/api/src/modules/auth/auth.controller.ts`
+- [x] T025 [P] [US2] Implement `LoginForm` component in `apps/web/src/features/auth/components/login-form.tsx` with email, password, reveal toggle, keyboard submit (`↵`), and generic error alert
+- [x] T026 [US2] Implement login page in `apps/web/src/app/(auth)/login/page.tsx` adhering to centered 380px layout in `ux-design.md`, reading `redirect` query parameter for post-login destination
+- [x] T027 [US2] Wire `AuthContext` to query `GET /api/auth/me` on mount in `apps/web/src/features/auth/context/auth-context.tsx` to restore session state without layout flicker
+- [x] T028 [US2] E2E integration test for sign-in, token refresh rotation, and reload persistence in `apps/api/test/e2e/login-refresh.e2e-spec.ts`
 
 **Checkpoint**: User Stories 1 and 2 operate seamlessly together with persistent sessions.
 
@@ -88,12 +88,12 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Independent Test**: Click sign out from user menu, verify session is marked `isRevoked: true` in database, verify cookies are cleared, and confirm subsequent requests to `/api/auth/me` return 401.
 
-- [ ] T029 [P] [US3] Unit tests for `AuthService.logout` in `apps/api/test/unit/logout.spec.ts`
-- [ ] T030 [US3] Implement `AuthService.logout` in `apps/api/src/modules/auth/auth.service.ts` setting `isRevoked: true` on active session record
-- [ ] T031 [US3] Implement `POST /api/auth/logout` endpoint in `apps/api/src/modules/auth/auth.controller.ts` clearing `access_token` and `refresh_token` cookies (`Max-Age=0`)
-- [ ] T032 [P] [US3] Implement `UserMenu` dropdown component in `apps/web/src/components/navigation/user-menu.tsx` showing initials avatar, user name, email, settings link, and sign-out action (strictly Feature 001 scope)
-- [ ] T033 [US3] Wire `logout` action in `apps/web/src/features/auth/context/auth-context.tsx` to invoke logout endpoint, clear client state, and redirect to `/login`
-- [ ] T034 [US3] E2E integration test for session revocation and cookie clearance on logout in `apps/api/test/e2e/logout.e2e-spec.ts`
+- [x] T029 [P] [US3] Unit tests for `AuthService.logout` in `apps/api/test/unit/logout.spec.ts`
+- [x] T030 [US3] Implement `AuthService.logout` in `apps/api/src/modules/auth/auth.service.ts` setting `isRevoked: true` on active session record
+- [x] T031 [US3] Implement `POST /api/auth/logout` endpoint in `apps/api/src/modules/auth/auth.controller.ts` clearing `access_token` and `refresh_token` cookies (`Max-Age=0`)
+- [x] T032 [P] [US3] Implement `UserMenu` dropdown component in `apps/web/src/components/navigation/user-menu.tsx` showing initials avatar, user name, email, settings link, and sign-out action (strictly Feature 001 scope)
+- [x] T033 [US3] Wire `logout` action in `apps/web/src/features/auth/context/auth-context.tsx` to invoke logout endpoint, clear client state, and redirect to `/login`
+- [x] T034 [US3] E2E integration test for session revocation and cookie clearance on logout in `apps/api/test/e2e/logout.e2e-spec.ts`
 
 **Checkpoint**: User Story 3 provides complete session termination and privacy protection.
 
@@ -105,10 +105,10 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Independent Test**: Navigate to `/settings` in incognito window, verify redirect to `/login?redirect=%2Fsettings`, sign in, and verify automatic forwarding to `/settings`.
 
-- [ ] T035 [US4] Implement edge middleware in `apps/web/src/middleware.ts` inspecting auth cookies, redirecting unauthenticated traffic to `/login?redirect=<path>` and authenticated users away from public auth routes to `/workspaces`
-- [ ] T036 [P] [US4] Implement responsive application header in `apps/web/src/components/navigation/header.tsx` with dynamic unauthenticated (Sign In / Register buttons) and authenticated states (Brand + UserMenu)
-- [ ] T037 [US4] Update root layouts in `apps/web/src/app/layout.tsx` to wrap children with `AuthProvider` and mount application header
-- [ ] T038 [US4] Integration test for edge middleware route protection and redirect query parameter preservation in `apps/web/test/middleware.test.ts`
+- [x] T035 [US4] Implement edge middleware in `apps/web/src/middleware.ts` inspecting auth cookies, redirecting unauthenticated traffic to `/login?redirect=<path>` and authenticated users away from public auth routes to `/workspaces`
+- [x] T036 [P] [US4] Implement responsive application header in `apps/web/src/components/navigation/header.tsx` with dynamic unauthenticated (Sign In / Register buttons) and authenticated states (Brand + UserMenu)
+- [x] T037 [US4] Update root layouts in `apps/web/src/app/layout.tsx` to wrap children with `AuthProvider` and mount application header
+- [x] T038 [US4] Integration test for edge middleware route protection and redirect query parameter preservation in `apps/web/test/middleware.test.ts`
 
 **Checkpoint**: All private routes and deep links are securely guarded.
 
@@ -120,12 +120,12 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Independent Test**: Navigate to `/settings`, view registered email and member-since date, edit display name to a new value, click save, and confirm update appears across navigation header and persists on reload.
 
-- [ ] T039 [P] [US5] Unit tests for `UsersService.updateProfile` in `apps/api/test/unit/profile.spec.ts`
-- [ ] T040 [US5] Implement `UsersService.updateProfile` in `apps/api/src/modules/users/users.service.ts` validating and updating `displayName` (1–60 non-empty characters)
-- [ ] T041 [US5] Implement `PATCH /api/users/profile` protected endpoint in `apps/api/src/modules/users/users.controller.ts` returning updated `UserProfile`
-- [ ] T042 [P] [US5] Implement `ProfileForm` component in `apps/web/src/features/auth/components/profile-form.tsx` with read-only email, display name field, member-since date, and auto-dismissing toast feedback per `ux-design.md`
-- [ ] T043 [US5] Implement settings page in `apps/web/src/app/(dashboard)/settings/page.tsx` with two-column layout and vertical sub-navigation rendering the Profile tab
-- [ ] T044 [US5] E2E integration test for profile retrieval and display name update in `apps/api/test/e2e/profile.e2e-spec.ts`
+- [x] T039 [P] [US5] Unit tests for `UsersService.updateProfile` in `apps/api/test/unit/profile.spec.ts`
+- [x] T040 [US5] Implement `UsersService.updateProfile` in `apps/api/src/modules/users/users.service.ts` validating and updating `displayName` (1–60 non-empty characters)
+- [x] T041 [US5] Implement `PATCH /api/users/profile` protected endpoint in `apps/api/src/modules/users/users.controller.ts` returning updated `UserProfile`
+- [x] T042 [P] [US5] Implement `ProfileForm` component in `apps/web/src/features/auth/components/profile-form.tsx` with read-only email, display name field, member-since date, and auto-dismissing toast feedback per `ux-design.md`
+- [x] T043 [US5] Implement settings page in `apps/web/src/app/(dashboard)/settings/page.tsx` with two-column layout and vertical sub-navigation rendering the Profile tab
+- [x] T044 [US5] E2E integration test for profile retrieval and display name update in `apps/api/test/e2e/profile.e2e-spec.ts`
 
 **Checkpoint**: Profile viewing and updates are fully functional.
 
@@ -137,12 +137,12 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Independent Test**: Submit valid current password and new password conforming to FR-003, verify password update succeeds, verify current browser remains logged in with rotated tokens, and verify other device sessions return 401.
 
-- [ ] T045 [P] [US6] Unit tests for `UsersService.changePassword` and session revocation in `apps/api/test/unit/change-password.spec.ts`
-- [ ] T046 [US6] Implement `UsersService.changePassword` in `apps/api/src/modules/users/users.service.ts` validating current password, hashing new password (bcrypt 12), rotating current session tokens, and revoking other sessions (`isRevoked = true` where `userId = :id AND id != :currentSessionId`)
-- [ ] T047 [US6] Implement `POST /api/users/change-password` protected endpoint in `apps/api/src/modules/users/users.controller.ts` returning success message
-- [ ] T048 [P] [US6] Implement `PasswordForm` component in `apps/web/src/features/auth/components/password-form.tsx` with current password, new password with FR-003 indicators, confirmation, and explanatory session note
-- [ ] T049 [US6] Mount `PasswordForm` in the Security & Password tab of `apps/web/src/app/(dashboard)/settings/page.tsx`
-- [ ] T050 [US6] E2E integration test for password change and cross-device session revocation in `apps/api/test/e2e/change-password.e2e-spec.ts`
+- [x] T045 [P] [US6] Unit tests for `UsersService.changePassword` and session revocation in `apps/api/test/unit/change-password.spec.ts`
+- [x] T046 [US6] Implement `UsersService.changePassword` in `apps/api/src/modules/users/users.service.ts` validating current password, hashing new password (bcrypt 12), rotating current session tokens, and revoking other sessions (`isRevoked = true` where `userId = :id AND id != :currentSessionId`)
+- [x] T047 [US6] Implement `POST /api/users/change-password` protected endpoint in `apps/api/src/modules/users/users.controller.ts` returning success message
+- [x] T048 [P] [US6] Implement `PasswordForm` component in `apps/web/src/features/auth/components/password-form.tsx` with current password, new password with FR-003 indicators, confirmation, and explanatory session note
+- [x] T049 [US6] Mount `PasswordForm` in the Security & Password tab of `apps/web/src/app/(dashboard)/settings/page.tsx`
+- [x] T050 [US6] E2E integration test for password change and cross-device session revocation in `apps/api/test/e2e/change-password.e2e-spec.ts`
 
 **Checkpoint**: Password change and session invalidation rules are verified.
 
@@ -152,10 +152,10 @@ description: "Task list for Feature 001: Authentication & User Management"
 
 **Purpose**: Monorepo static verification, linting, production build checks, and quickstart validation.
 
-- [ ] T051 [P] Execute static typecheck with zero errors across all packages via `pnpm -r --parallel run typecheck`
-- [ ] T052 [P] Execute linter checks with zero warnings/errors via `pnpm -r --parallel run lint`
-- [ ] T053 Verify production build success across `@devspace/contracts`, `@devspace/api`, and `@devspace/web` via `pnpm build`
-- [ ] T054 Run end-to-end scenario validation following `specs/001-auth-user-management/quickstart.md`
+- [x] T051 [P] Execute static typecheck with zero errors across all packages via `pnpm -r --parallel run typecheck`
+- [x] T052 [P] Execute linter checks with zero warnings/errors via `pnpm -r --parallel run lint`
+- [x] T053 Verify production build success across `@devspace/contracts`, `@devspace/api`, and `@devspace/web` via `pnpm build`
+- [x] T054 Run end-to-end scenario validation following `specs/001-auth-user-management/quickstart.md`
 
 ---
 
