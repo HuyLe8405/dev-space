@@ -46,12 +46,12 @@ description: "Task list for Feature 002: Workspace Management"
 
 **Independent Test**: Navigate to the creation form, submit valid details, verify record in database, verify redirection to `/workspaces/:workspaceId`, and confirm the active workspace state is established.
 
-- [ ] T009 [P] [US1] Unit tests for `WorkspacesService.create` in `apps/api/test/unit/workspaces-create.spec.ts` verifying whitespace trimming on `name`, default fallbacks (`icon = "Briefcase"`, `color = "blue"`), and user association
-- [ ] T010 [US1] Implement `WorkspacesService.create` in `apps/api/src/modules/workspaces/workspaces.service.ts` associating the workspace with `userId = req.user.id`, trimming whitespace from `name`, applying defaults, and persisting via `prisma.workspace.create`
-- [ ] T011 [US1] Implement `POST /api/workspaces` endpoint in `apps/api/src/modules/workspaces/workspaces.controller.ts` with `@UseGuards(JwtAuthGuard)` and `@CurrentUser()` returning 201 Created with `WorkspaceDto`
-- [ ] T012 [P] [US1] Implement `CreateWorkspaceDialog` accessible modal component in `apps/web/src/features/workspaces/components/create-workspace-dialog.tsx` with autofocus name input, character counter (`X/50`), icon picker, color picker, description textarea (`X/280`), and inline error handling
-- [ ] T013 [US1] Wire `createWorkspace` action in `WorkspaceContext` (`apps/web/src/features/workspaces/context/workspace-context.tsx`) to post to `/api/workspaces`, prepend new workspace to local state, store ID in `localStorage` under `devspace:last_workspace_id`, and push router to `/workspaces/:newId`
-- [ ] T014 [US1] E2E integration test for workspace creation lifecycle, default application, and validation error rejection in `apps/api/test/e2e/workspaces-create.e2e-spec.ts`
+- [x] T009 [P] [US1] Unit tests for `WorkspacesService.create` in `apps/api/test/unit/workspaces-create.spec.ts` verifying whitespace trimming on `name`, default fallbacks (`icon = "Briefcase"`, `color = "blue"`), and user association
+- [x] T010 [US1] Implement `WorkspacesService.create` in `apps/api/src/modules/workspaces/workspaces.service.ts` associating the workspace with `userId = req.user.id`, trimming whitespace from `name`, applying defaults, and persisting via `prisma.workspace.create`
+- [x] T011 [US1] Implement `POST /api/workspaces` endpoint in `apps/api/src/modules/workspaces/workspaces.controller.ts` with `@UseGuards(JwtAuthGuard)` and `@CurrentUser()` returning 201 Created with `WorkspaceDto`
+- [x] T012 [P] [US1] Implement `CreateWorkspaceDialog` accessible modal component in `apps/web/src/features/workspaces/components/create-workspace-dialog.tsx` with autofocus name input, character counter (`X/50`), icon picker, color picker, description textarea (`X/280`), and inline error handling
+- [x] T013 [US1] Wire `createWorkspace` action in `WorkspaceContext` (`apps/web/src/features/workspaces/context/workspace-context.tsx`) to post to `/api/workspaces`, prepend new workspace to local state, store ID in `localStorage` under `devspace:last_workspace_id`, and push router to `/workspaces/:newId`
+- [x] T014 [US1] E2E integration test for workspace creation lifecycle, default application, and validation error rejection in `apps/api/test/e2e/workspaces-create.e2e-spec.ts`
 
 **Checkpoint**: User Story 1 is functional and verifiable as a standalone MVP increment.
 
