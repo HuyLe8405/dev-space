@@ -47,3 +47,4 @@ coverage/
 # agent
 .agents/
 .agent/
+.impeccable/
