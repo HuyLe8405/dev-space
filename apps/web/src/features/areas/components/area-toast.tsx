@@ -43,9 +43,9 @@ export function AreaToast({ toast, onDismiss }: AreaToastProps) {
         type="button"
         onClick={onDismiss}
         aria-label="Dismiss notification"
-        className="text-muted-foreground hover:text-foreground p-1 rounded-md transition-colors ml-auto focus:outline-none focus:ring-1 focus:ring-primary"
+        className="relative text-muted-foreground hover:text-foreground p-1.5 w-7 h-7 min-w-[28px] min-h-[28px] flex items-center justify-center rounded-md transition-colors ml-auto focus:outline-none focus-visible:ring-1 focus-visible:ring-primary after:absolute after:-inset-2 after:content-[''] sm:after:hidden cursor-pointer"
       >
-        <X className="w-3.5 h-3.5" />
+        <X className="w-3.5 h-3.5" aria-hidden="true" />
       </button>
     </div>
   );

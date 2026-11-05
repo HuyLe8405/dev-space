@@ -62,7 +62,7 @@ function AreaBreadcrumb({
             Workspaces
           </Link>
         </li>
-        <li aria-hidden="true" className="select-none text-muted-foreground/60">
+        <li aria-hidden="true" className="select-none text-muted-foreground">
           /
         </li>
         <li>
@@ -81,7 +81,7 @@ function AreaBreadcrumb({
         </li>
         {activeArea && (
           <>
-            <li aria-hidden="true" className="select-none text-muted-foreground/60">
+            <li aria-hidden="true" className="select-none text-muted-foreground">
               /
             </li>
             <li>

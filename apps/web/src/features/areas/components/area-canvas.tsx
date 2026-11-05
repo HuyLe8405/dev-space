@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Pencil, Trash2, FolderKanban } from 'lucide-react';
+import { Pencil, Trash2 } from 'lucide-react';
 import type { AreaDto } from '@devspace/contracts';
 import { ICON_MAP } from '@/features/workspaces/components/icon-picker';
 import { COLOR_CONFIG } from '@/features/workspaces/components/color-picker';
+import { ProjectSection } from '@/features/projects';
 
 interface AreaCanvasProps {
   area: AreaDto;
@@ -70,7 +71,7 @@ export function AreaCanvas({
             <button
               type="button"
               onClick={onEdit}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:py-1 min-h-[32px] sm:min-h-0 text-xs font-medium rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors focus:outline-none focus:ring-1 focus:ring-primary"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:py-1 min-h-[32px] sm:min-h-0 text-xs font-medium rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
             >
               <Pencil className="w-3.5 h-3.5" />
               <span>Edit Area</span>
@@ -81,7 +82,7 @@ export function AreaCanvas({
             <button
               type="button"
               onClick={onDelete}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:py-1 min-h-[32px] sm:min-h-0 text-xs font-medium rounded-md text-rose-400/80 hover:text-rose-400 hover:bg-rose-500/10 transition-colors focus:outline-none focus:ring-1 focus:ring-rose-500"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 sm:py-1 min-h-[32px] sm:min-h-0 text-xs font-medium rounded-md text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-rose-500 cursor-pointer"
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>Delete Area</span>
@@ -90,18 +91,8 @@ export function AreaCanvas({
         </div>
       </div>
 
-      {/* Future Project Staging Canvas (2D-first calm container) */}
-      <div className="rounded-2xl border border-dashed border-border/80 bg-card/20 p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
-        <div className="w-12 h-12 rounded-xl bg-muted/30 border border-border/50 flex items-center justify-center text-muted-foreground/60 mb-3">
-          <FolderKanban className="w-6 h-6" />
-        </div>
-        <h3 className="text-sm font-semibold text-foreground mb-1">
-          {area.name} Canvas
-        </h3>
-        <p className="text-xs text-muted-foreground max-w-md leading-relaxed">
-          Projects and resources inside this area will be staged here. In future updates, this canvas will expand into interactive 3D structures.
-        </p>
-      </div>
+      {/* Project Management Subsystem */}
+      <ProjectSection area={area} />
     </div>
   );
 }

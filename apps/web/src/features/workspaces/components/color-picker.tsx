@@ -125,7 +125,7 @@ export function ColorPicker({ value, onChange }: ColorPickerProps) {
               aria-label={config.label}
               onClick={() => onChange(colorName)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+              className={`relative w-7 h-7 min-w-[28px] min-h-[28px] rounded-full flex items-center justify-center transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background after:absolute after:-inset-1.5 after:content-[''] sm:after:hidden cursor-pointer ${
                 config.swatch
               } ${
                 isSelected
@@ -134,7 +134,7 @@ export function ColorPicker({ value, onChange }: ColorPickerProps) {
               }`}
             >
               {isSelected && (
-                <Check className="w-3.5 h-3.5 text-slate-950 font-bold" />
+                <Check className="w-3.5 h-3.5 text-slate-950 font-bold" aria-hidden="true" />
               )}
             </button>
           );
