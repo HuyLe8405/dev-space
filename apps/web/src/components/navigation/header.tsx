@@ -29,7 +29,7 @@ export function ApplicationHeader() {
 
           {isAuthenticated && (
             <>
-              <span className="text-muted-foreground/40 text-xs select-none shrink-0">/</span>
+              <span aria-hidden="true" className="text-muted-foreground text-xs select-none shrink-0">/</span>
               <WorkspaceSwitcher />
             </>
           )}

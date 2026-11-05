@@ -20,3 +20,6 @@ export * from './auth/auth.dto';
 export * from './auth/user.dto';
 export * from './workspaces/workspace.dto';
 export * from './areas/area.dto';
+export * from './projects/project.dto';
+export * from './nodes/node.dto';
+export * from './nodes/node-relationship.dto';
