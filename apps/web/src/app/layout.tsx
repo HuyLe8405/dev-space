@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { AuthProvider } from '@/features/auth/context/auth-context';
+import { WorkspaceProvider } from '@/features/workspaces/context/workspace-context';
 import { ApplicationHeader } from '@/components/navigation/header';
 
 export const metadata: Metadata = {
@@ -17,8 +18,10 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="min-h-screen antialiased bg-background text-foreground flex flex-col">
         <AuthProvider>
-          <ApplicationHeader />
-          <div className="flex-1 flex flex-col">{children}</div>
+          <WorkspaceProvider>
+            <ApplicationHeader />
+            <div className="flex-1 flex flex-col">{children}</div>
+          </WorkspaceProvider>
         </AuthProvider>
       </body>
     </html>

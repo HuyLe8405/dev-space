@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { HealthStatus } from '@devspace/contracts';
+import type { HealthStatus } from '@devspace/contracts';
 
 @ApiTags('Health')
 @Controller('health')

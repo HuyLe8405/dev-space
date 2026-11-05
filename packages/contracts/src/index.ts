@@ -18,3 +18,4 @@ export interface WorkspaceSummary {
 
 export * from './auth/auth.dto';
 export * from './auth/user.dto';
+export * from './workspaces/workspace.dto';
