@@ -63,7 +63,27 @@ model Workspace {
   updatedAt   DateTime @updatedAt
 
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  areas       Area[]
 
   @@index([userId])
   @@map("workspaces")
+}
+
+model Area {
+  id          String    @id @default(cuid())
+  workspaceId String
+  name        String
+  description String?
+  icon        String    @default("Layers")
+  color       String    @default("indigo")
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId])
+  @@index([workspaceId, order])
+  @@unique([workspaceId, name])
+  @@map("areas")
 }
